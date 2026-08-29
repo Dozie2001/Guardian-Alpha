@@ -1,0 +1,46 @@
+{
+  "name": "guardian-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Policy-bounded AI trading gateway for Alpaca paper trading.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "next lint",
+    "mcp": "tsx mcp/server.ts",
+    "telegram": "tsx scripts/telegram.ts",
+    "agent": "tsx scripts/agent.ts",
+    "agent:scan": "tsx scripts/agent-scan.ts",
+    "agent:reconcile": "tsx scripts/reconcile-orders.ts",
+    "alpaca:competition-report": "bash scripts/alpaca-cli-competition-report.sh",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "next": "^16.3.3",
+    "next-auth": "^5.0.0-beta.32",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "^16.3.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "tsx": "^4.20.0",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.7"
+  }
+}

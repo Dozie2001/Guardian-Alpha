@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 30 6% 7%;
+    --card-foreground: 0 0% 98%;
+    --primary: 13 74% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 62%;
+    --accent: 13 74% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 350 92% 72%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 13 74% 51%;
+    --radius: 1.375rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 74%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-image:
+      linear-gradient(180deg, rgba(224, 77, 38, 0.08), transparent 420px),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: Sora, Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .guardian-hero {
+    isolation: isolate;
+  }
+
+  .guardian-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.58;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(circle at 54% 43%, black, transparent 74%);
+  }
+
+  .guardian-stars {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .guardian-stars-b {
+    transform: translate(130px, 220px) scale(1.08);
+  }
+
+  .guardian-stars::before,
+  .guardian-stars::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    border-radius: 9999px;
+  }
+
+  .guardian-stars::before {
+    box-shadow:
+      80px 70px rgba(255, 255, 255, 0.42),
+      220px 140px rgba(255, 255, 255, 0.24),
+      420px 80px rgba(255, 255, 255, 0.5),
+      650px 190px rgba(255, 255, 255, 0.3),
+      820px 90px rgba(255, 255, 255, 0.44),
+      1040px 210px rgba(255, 255, 255, 0.26),
+      1220px 100px rgba(255, 255, 255, 0.46),
+      180px 380px rgba(255, 255, 255, 0.32),
+      360px 520px rgba(255, 255, 255, 0.4),
+      620px 420px rgba(255, 255, 255, 0.28),
+      880px 560px rgba(255, 255, 255, 0.36),
+      1120px 430px rgba(255, 255, 255, 0.3),
+      1360px 580px rgba(255, 255, 255, 0.42);
+  }
+
+  .guardian-stars::after {
+    box-shadow:
+      140px 210px rgba(255, 255, 255, 0.34),
+      330px 250px rgba(255, 255, 255, 0.44),
+      540px 160px rgba(255, 255, 255, 0.26),
+      760px 300px rgba(255, 255, 255, 0.4),
+      960px 170px rgba(255, 255, 255, 0.3),
+      1180px 310px rgba(255, 255, 255, 0.44),
+      1320px 220px rgba(255, 255, 255, 0.28),
+      260px 650px rgba(255, 255, 255, 0.35),
+      560px 700px rgba(255, 255, 255, 0.28),
+      920px 660px rgba(255, 255, 255, 0.4),
+      1260px 710px rgba(255, 255, 255, 0.3);
+  }
+
+  .guardian-orbit {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    z-index: -1;
+    width: min(44rem, 82vw);
+    aspect-ratio: 1;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    opacity: 0.45;
+  }
+
+  .guardian-orbit span {
+    position: absolute;
+    inset: 16%;
+    border: 1px dashed rgba(255, 255, 255, 0.24);
+    border-radius: 9999px;
+  }
+
+  .guardian-orbit span:nth-child(2) {
+    inset: 27%;
+    transform: rotate(54deg) scaleX(1.55);
+  }
+
+  .guardian-orbit span:nth-child(3) {
+    inset: 31%;
+    transform: rotate(-36deg) scaleY(1.35);
+    border-color: rgba(224, 77, 38, 0.42);
+  }
+
+  .guardian-marquee {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .guardian-ticker {
+    transform: translateX(0);
+  }
+
+  .floor-texture {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .floor-texture::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+  }
+
+  .market-panel {
+    @apply border border-border bg-card text-card-foreground;
+    border-radius: 22px;
+    background: color-mix(in srgb, hsl(var(--card)) 94%, transparent);
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease,
+      transform 150ms ease;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.035),
+      0 28px 70px -56px rgba(224, 77, 38, 0.7);
+  }
+
+  .section-kicker {
+    @apply font-mono text-[9px] uppercase tracking-[0.22em] text-primary;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .guardian-stars {
+    animation: guardian-twinkle 5.5s ease-in-out infinite alternate;
+  }
+
+  .guardian-orbit {
+    animation: guardian-orbit 72s linear infinite;
+  }
+
+  .guardian-ticker {
+    animation: guardian-ticker 36s linear infinite;
+  }
+
+  .market-panel:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes guardian-twinkle {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes guardian-orbit {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes guardian-ticker {
+  to {
+    transform: translateX(-50%);
+  }
+}

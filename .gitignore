@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+dist
+coverage
+.env
+.env.local
+data/audit-log.json
+data/agent-state.json
+data/agent-settings.json
+data/archive-*/
+*.log
+.DS_Store
+.vercel
+.env*
