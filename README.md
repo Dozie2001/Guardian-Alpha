@@ -1,6 +1,6 @@
-# Guardian MCP
+# Guardian Alpha
 
-Guardian MCP is a policy-bounded AI trading gateway for Alpaca paper trading. AI agents can propose stock, ETF, crypto, and defined-risk options trades, but deterministic rules decide whether the trade is blocked, approved for human review, or submitted to Alpaca paper trading.
+Guardian Alpha is a policy-bounded AI trading gateway for Alpaca paper trading. AI agents can propose stock, ETF, crypto, and defined-risk options trades, but deterministic rules decide whether the trade is blocked, approved for human review, or submitted to Alpaca paper trading.
 
 ## Why this exists
 
