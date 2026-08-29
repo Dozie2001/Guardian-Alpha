@@ -14,6 +14,7 @@
     "agent": "tsx scripts/agent.ts",
     "agent:scan": "tsx scripts/agent-scan.ts",
     "agent:reconcile": "tsx scripts/reconcile-orders.ts",
+    "alpaca:verify-paper": "tsx scripts/verify-paper-account.ts",
     "alpaca:competition-report": "bash scripts/alpaca-cli-competition-report.sh",
     "test": "vitest run",
     "test:watch": "vitest"
