@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guardian Alpha Pitch Deck</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #080907;
+        --panel: #11130f;
+        --ink: #f4f1e8;
+        --muted: #aaa497;
+        --line: rgba(244, 241, 232, 0.16);
+        --gold: #d8b65a;
+        --mint: #83d6b5;
+        --red: #ef705f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      main { scroll-snap-type: y mandatory; height: 100vh; overflow-y: auto; }
+      section {
+        min-height: 100vh;
+        scroll-snap-align: start;
+        display: grid;
+        align-content: center;
+        gap: 32px;
+        padding: 72px clamp(28px, 7vw, 96px);
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+      section::before {
+        content: attr(data-slide);
+        position: absolute;
+        top: 28px;
+        right: clamp(28px, 7vw, 96px);
+        color: var(--muted);
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .kicker {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      h1, h2 { margin: 0; line-height: 0.95; letter-spacing: 0; }
+      h1 { max-width: 980px; font-size: clamp(64px, 10vw, 132px); }
+      h2 { max-width: 980px; font-size: clamp(46px, 7vw, 88px); }
+      p { max-width: 760px; margin: 0; color: var(--muted); font-size: clamp(20px, 2vw, 30px); line-height: 1.35; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card {
+        min-height: 142px;
+        border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--panel) 88%, transparent);
+        border-radius: 8px;
+        padding: 24px;
+      }
+      .card strong { display: block; margin-bottom: 12px; color: var(--ink); font-size: 22px; }
+      .card span { color: var(--muted); font-size: 18px; line-height: 1.35; }
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        align-items: stretch;
+      }
+      .step {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        min-height: 128px;
+      }
+      .step b { color: var(--mint); display: block; margin-bottom: 10px; }
+      .step span { color: var(--muted); font-size: 16px; line-height: 1.3; }
+      .terminal {
+        display: grid;
+        gap: 12px;
+        max-width: 720px;
+        border: 1px solid var(--line);
+        background: #050604;
+        border-radius: 8px;
+        padding: 24px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        color: var(--mint);
+        font-size: clamp(18px, 2vw, 28px);
+      }
+      .metric { font-size: clamp(34px, 4vw, 58px); color: var(--ink); font-weight: 760; }
+      .accent { color: var(--gold); }
+      .danger { color: var(--red); }
+      .links { display: grid; gap: 14px; color: var(--muted); font-size: 22px; }
+      @media (max-width: 800px) {
+        section { padding: 64px 22px; }
+        .grid, .two, .flow { grid-template-columns: 1fr; }
+        section::before { right: 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section data-slide="01">
+        <div class="kicker">Alpaca AI Trading Agents Hackathon</div>
+        <h1>Guardian Alpha</h1>
+        <p>Autonomous paper trading on Alpaca, with policy-gated execution.</p>
+      </section>
+
+      <section data-slide="02">
+        <div class="kicker">Problem</div>
+        <h2>Most AI trading agents are either powerless or dangerous.</h2>
+        <div class="grid">
+          <div class="card"><strong>Chat-only</strong><span>They explain trades but never execute.</span></div>
+          <div class="card"><strong>Key-holding</strong><span>They can trade but have too much authority.</span></div>
+          <div class="card"><strong>Options risk</strong><span>Bad autonomy can become expensive quickly.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="03">
+        <div class="kicker">Solution</div>
+        <h2>AI proposes. Guardian checks. Alpaca executes.</h2>
+        <div class="flow">
+          <div class="step"><b>1</b><span>Market data and backtest context</span></div>
+          <div class="step"><b>2</b><span>Groq plus Featherless reasoning</span></div>
+          <div class="step"><b>3</b><span>Deterministic policy validation</span></div>
+          <div class="step"><b>4</b><span>Alpaca paper order</span></div>
+          <div class="step"><b>5</b><span>Receipts and reconciliation</span></div>
+        </div>
+      </section>
+
+      <section data-slide="04">
+        <div class="kicker">Product</div>
+        <h2>Telegram is the main control surface.</h2>
+        <div class="terminal">
+          <span>/agent</span>
+          <span>/scan</span>
+          <span>/why</span>
+          <span>/policy</span>
+          <span>/receipts</span>
+          <span>/brief</span>
+        </div>
+      </section>
+
+      <section data-slide="05">
+        <div class="kicker">Strategy</div>
+        <h2>A bounded multi-asset alpha agent.</h2>
+        <div class="grid">
+          <div class="card"><strong>Assets</strong><span>ETFs, equities, crypto, options.</span></div>
+          <div class="card"><strong>Signals</strong><span>Historical bars, momentum, volatility, research artifacts.</span></div>
+          <div class="card"><strong>Reasoning</strong><span>Model ranking over policy-created candidates.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="06">
+        <div class="kicker">Options Alpha</div>
+        <h2>Options are incorporated, not bolted on.</h2>
+        <div class="grid">
+          <div class="card"><strong>Calls</strong><span>Bullish underlying signal.</span></div>
+          <div class="card"><strong>Puts</strong><span>Bearish underlying signal.</span></div>
+          <div class="card"><strong>Risk</strong><span>Premium cap, contract cap, no naked selling.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="07">
+        <div class="kicker">Risk Gates</div>
+        <h2>The model never owns the enforcement path.</h2>
+        <div class="grid">
+          <div class="card"><strong>Paper only</strong><span>Live Alpaca endpoint is blocked.</span></div>
+          <div class="card"><strong>Caps</strong><span>Trade size, daily orders, daily notional, position exposure.</span></div>
+          <div class="card"><strong>Broker truth</strong><span>Alpaca order status reconciles final state.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="08">
+        <div class="kicker">Alpaca Stack</div>
+        <h2>Alpaca is the broker, data rail, and judging record.</h2>
+        <div class="grid">
+          <div class="card"><strong>Trading API</strong><span>Paper orders, positions, account state.</span></div>
+          <div class="card"><strong>Market data</strong><span>Historical signals and quote context.</span></div>
+          <div class="card"><strong>MCP + CLI</strong><span>Agent tools and competition evidence.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="09">
+        <div class="kicker">Demo</div>
+        <h2>What judges can verify.</h2>
+        <div class="grid two">
+          <div class="card"><strong>Telegram loop</strong><span>/agent, /policy, /scan, /why, /receipts.</span></div>
+          <div class="card"><strong>Dashboard loop</strong><span>Portfolio, P&L, options, receipts, decision journal.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="10">
+        <div class="kicker">Creativity</div>
+        <h2>A trading agent with an operating system.</h2>
+        <div class="grid">
+          <div class="card"><strong>Chat-first</strong><span>Control the agent from Telegram.</span></div>
+          <div class="card"><strong>Auditable</strong><span>Every decision becomes a receipt.</span></div>
+          <div class="card"><strong>Composable</strong><span>Web, MCP, CLI, and worker share the same core.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="11">
+        <div class="kicker">Status</div>
+        <h2>Live paper-trading system.</h2>
+        <div class="grid">
+          <div class="card"><strong>App</strong><span>Deployed web command center.</span></div>
+          <div class="card"><strong>Bot</strong><span>Telegram operator interface.</span></div>
+          <div class="card"><strong>Worker</strong><span>VM-hosted autonomous scans.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="12">
+        <div class="kicker">Roadmap</div>
+        <h2>From hackathon agent to product.</h2>
+        <div class="grid">
+          <div class="card"><strong>User accounts</strong><span>Each user connects their own Alpaca paper account.</span></div>
+          <div class="card"><strong>Per-user policy</strong><span>Isolated limits, receipts, and Telegram chat IDs.</span></div>
+          <div class="card"><strong>Option spreads</strong><span>Defined-risk multi-leg strategies.</span></div>
+        </div>
+      </section>
+
+      <section data-slide="13">
+        <div class="kicker">Close</div>
+        <h2>AI can search for alpha. <span class="accent">Policy decides what reaches Alpaca.</span></h2>
+        <div class="links">
+          <span>App: https://guardian-mcp-eta.vercel.app</span>
+          <span>Telegram: https://t.me/AlpacaGuardBot</span>
+          <span>GitHub: https://github.com/Dozie2001/Guardian-Alpha.git</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
